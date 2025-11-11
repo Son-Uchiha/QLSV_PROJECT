@@ -1,6 +1,6 @@
 ---
 
-```markdown
+```
 # 🧑‍💻 Quản Lý Sinh Viên (Java Swing + MySQL)
 
 Ứng dụng **Java Swing** kết nối **MySQL** để thực hiện quản lý sinh viên — gồm các chức năng:  

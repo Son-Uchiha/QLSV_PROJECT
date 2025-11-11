@@ -1,33 +1,36 @@
+# 🎓 ỨNG DỤNG QUẢN LÝ SINH VIÊN (QLSV)
+
+Ứng dụng **Java Swing + JDBC** quản lý danh sách sinh viên, thao tác CRUD với MySQL.
+Dự án được xây dựng để thực hành lập trình hướng đối tượng, GUI và kết nối CSDL.
+
 ---
-```
+
 ## 📁 Cấu trúc thư mục
 
 ```
-
 QLSV_PROJECT/
 │
-├── .vscode/                 # Cấu hình VS Code (classpath, settings)
+├── .vscode/                      # Cấu hình VS Code (classpath, settings)
 │
 ├── database/
-│   └── setup_mysql.sql      # Script tạo database + bảng SinhVien + dữ liệu mẫu
+│   └── setup_mysql.sql           # Script tạo database + bảng SinhVien + dữ liệu mẫu
 │
 ├── lib/
 │   └── mysql-connector-j-9.5.0.jar   # Thư viện JDBC (MySQL Connector)
 │
 ├── src/
-│   ├── DBConnection.java    # Kết nối CSDL (JDBC)
-│   └── SinhVienFrame.java   # Giao diện JFrame + xử lý CRUD
+│   ├── DBConnection.java         # Kết nối CSDL (JDBC)
+│   └── SinhVienFrame.java        # Giao diện JFrame + xử lý CRUD
 │
 └── README.md
-
 ```
 
 ---
 
 ## ⚙️ 1. Cấu hình CSDL MySQL
 
-Mở MySQL Workbench và chạy file [`database/setup_mysql.sql`](database/setup_mysql.sql)  
-Hoặc copy đoạn sau:
+Mở **MySQL Workbench** và chạy file [`database/setup_mysql.sql`](database/setup_mysql.sql)
+Hoặc copy trực tiếp:
 
 ```sql
 CREATE DATABASE QLSV;
@@ -57,25 +60,24 @@ INSERT INTO SinhVien (MaSV, HoTen, Lop, GPA) VALUES
 
 ## ⚙️ 2. Cấu hình kết nối trong Java
 
-File: `src/DBConnection.java`
+**File:** `src/DBConnection.java`
 
 ```java
 private static final String URL  = "jdbc:mysql://localhost:3306/QLSV";
 private static final String USER = "root";
-private static final String PASS = "Son21042005@";
-// điền mật khẩu của bạn
+private static final String PASS = "Son21042005@"; // điền mật khẩu của bạn
 ```
 
-👉 Thay đổi `USER` và `PASS` cho phù hợp với tài khoản MySQL của bạn.
+> 🔧 Thay đổi `USER` và `PASS` cho phù hợp với tài khoản MySQL cá nhân.
 
 ---
 
 ## 💻 3. Cách chạy project (VS Code)
 
-### Chạy bằng nút **Run ▶️**
+### ▶️ Chạy trực tiếp
 
 1. Mở file `SinhVienFrame.java`
-2. Nhấn **Ctrl + F5** (hoặc Run ▶️)
+2. Nhấn **Ctrl + F5** hoặc chọn nút **Run ▶️**
 3. Nếu không thấy MySQL hoạt động, kiểm tra file `.vscode/settings.json`:
 
 ```json
@@ -84,56 +86,56 @@ private static final String PASS = "Son21042005@";
 }
 ```
 
+---
+
 ## 🪟 4. Giao diện chương trình
 
-- 4 ô nhập liệu: **Mã SV, Họ tên, Lớp, GPA**
-- 1 bảng hiển thị danh sách sinh viên
-- 5 nút chức năng:
+* **4 ô nhập liệu:** Mã SV, Họ tên, Lớp, GPA
+* **1 bảng hiển thị:** danh sách sinh viên
+* **5 nút chức năng:**
 
-  - **Hiển thị:** đọc toàn bộ dữ liệu từ CSDL
-  - **Thêm:** thêm sinh viên mới
-  - **Cập nhật:** sửa thông tin sinh viên
-  - **Xóa:** xóa sinh viên theo mã
-  - **Reset:** xóa form nhập + làm mới bảng
-
----
-
-## 🧠 5. Tác giả
-
-- **Họ tên:** Nguyễn Duy Sơn
-- **MSSV:** B23DCCN720
-- **Lớp:** D23CQCN06 – Học viện Công nghệ Bưu chính Viễn thông (PTIT)
+| Nút         | Chức năng                   |
+| ----------- | --------------------------- |
+| 🧾 Hiển thị | Đọc toàn bộ dữ liệu từ CSDL |
+| ➕ Thêm      | Thêm sinh viên mới          |
+| ✏️ Cập nhật | Sửa thông tin sinh viên     |
+| ❌ Xóa       | Xóa sinh viên theo mã       |
+| 🔄 Reset    | Làm mới form nhập và bảng   |
 
 ---
 
-## 📚 6. Mô tả kỹ thuật
+## 📚 5. Mô tả kỹ thuật
 
-- Ngôn ngữ: `Java 21`
-- IDE: `VS Code`
-- Database: `MySQL 8.x`
-- JDBC Driver: `mysql-connector-j-9.5.0.jar`
-- GUI: `Java Swing`
-- Kết nối DB: `JDBC (PreparedStatement + ResultSet)`
-- Kiểu dữ liệu: `VARCHAR`, `DECIMAL(10,2)`
+| Thành phần       | Mô tả                                |
+| ---------------- | ------------------------------------ |
+| **Ngôn ngữ**     | Java 21                              |
+| **IDE**          | Visual Studio Code                   |
+| **Database**     | MySQL 8.x                            |
+| **JDBC Driver**  | mysql-connector-j-9.5.0.jar          |
+| **GUI**          | Java Swing                           |
+| **Kết nối DB**   | JDBC (PreparedStatement + ResultSet) |
+| **Kiểu dữ liệu** | VARCHAR, DECIMAL(10,2)               |
 
 ---
 
-## 🧾 7. Mở rộng (tuỳ chọn)
+## 🧠 6. Tác giả
 
-Nếu muốn nâng cấp ứng dụng:
+* **Họ tên:** Nguyễn Duy Sơn
+* **MSSV:** B23DCCN720
+* **Lớp:** D23CQCN06 – Học viện Công nghệ Bưu chính Viễn thông (PTIT)
 
-- Thêm chức năng tìm kiếm theo tên hoặc lớp.
-- Thêm xác thực dữ liệu GPA (0.0 → 4.0).
-- Xuất danh sách sinh viên ra file `.csv` hoặc `.xlsx`.
-- Viết DAO riêng cho chuẩn mô hình MVC.
+---
+
+## 🚀 7. Hướng mở rộng
+
+* Thêm chức năng **tìm kiếm** theo tên hoặc lớp
+* Kiểm tra hợp lệ GPA (0.0 → 4.0)
+* **Xuất dữ liệu** ra file `.csv` / `.xlsx`
+* Tách lớp DAO + Model theo chuẩn **MVC**
 
 ---
 
 > 📅 **Hoàn thành:** 2025
 > 💬 **Mục tiêu:** Thực hành JDBC, GUI và CRUD trong Java
-> ❤️ Made with love by Sơn.
+> ❤️ Made with love by Sơn
 
-```
-
----
-```
